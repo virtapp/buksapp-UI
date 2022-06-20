@@ -1,9 +1,9 @@
 pipeline {
     agent any
     environment {
-        PROJECT_ID = "jenkins-project-328308"
-        CLUSTER_NAME = "k8s-cluster"
-        LOCATION = "us-central1-c"
+        PROJECT_ID = "focused-beacon-353107"
+        CLUSTER_NAME = "cluster-web"
+        LOCATION = "europe-west4-a"
         CREDENTIALS_ID = 'jenkins-project'
     }
     stages {
