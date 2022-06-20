@@ -19,10 +19,10 @@ pipeline {
         }
         stage('push docker image to dockerhub'){
             steps{
-                withCredentials([string(credentialsId: 'DOCKER_PASS', variable: 'docker_pass')]) {
-                    sh "docker login -u virtapp -p ${docker_pass}"
+                withCredentials([string(credentialsId: 'docker-hub-credentials', variable: 'docker-hub-credentials')]) {
+                    sh "docker login -u virtapp -p ${docker-hub-credentials}"
                 }
-                sh "docker push bukunmi00/buksapp-frontend:${env.BUILD_ID}"
+                sh "docker push virtapp/buksapp-frontend:${env.BUILD_ID}"
             }
             
         }
