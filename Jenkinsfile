@@ -4,7 +4,7 @@ pipeline {
         PROJECT_ID = "focused-beacon-353107"
         CLUSTER_NAME = "cluster-web"
         LOCATION = "europe-west4-a"
-        CREDENTIALS_ID = 'jenkins-project'
+        
     }
     stages {
         stage('pull from github repo'){
