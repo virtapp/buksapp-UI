@@ -9,18 +9,18 @@ pipeline {
     stages {
         stage('pull from github repo'){
             steps{
-                git "https://github.com/Bukunmitanimonure/buksapp-UI.git"
+                git "https://github.com/virtapp/buksapp-UI.git"
             }
         }
         stage('build docker image'){
             steps{
-                sh "docker build -t bukunmi00/buksapp-frontend:${env.BUILD_ID} ."                
+                sh "docker build -t virtapp/buksapp-frontend:${env.BUILD_ID} ."                
             }
         }
         stage('push docker image to dockerhub'){
             steps{
                 withCredentials([string(credentialsId: 'DOCKER_PASS', variable: 'docker_pass')]) {
-                    sh "docker login -u bukunmi00 -p ${docker_pass}"
+                    sh "docker login -u virtapp -p ${docker_pass}"
                 }
                 sh "docker push bukunmi00/buksapp-frontend:${env.BUILD_ID}"
             }
